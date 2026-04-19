@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>🎂 Happy Birthday Ishu! 🎂</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #ffe6f0 0%, #ffd9e8 40%, #ffc1d4 100%);
+      font-family: 'Segoe UI', 'Quicksand', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .floating-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .floating-fg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 15;
+    }
+
+    .heart, .rose, .fg-rose {
+      position: absolute;
+      user-select: none;
+    }
+
+    .heart {
+      color: rgba(255, 120, 160, 0.3);
+      font-size: 26px;
+      animation: floatHeart 15s infinite ease-in-out;
+    }
+
+    .rose {
+      color: rgba(200, 40, 60, 0.35);
+      font-size: 30px;
+      animation: floatHeart 22s infinite ease-in-out;
+    }
+
+    .fg-rose {
+      color: rgba(220, 30, 70, 0.6);
+      font-size: 34px;
+      animation: floatHeart 24s infinite ease-in-out;
+      z-index: 16;
+    }
+
+    .slow-rose { animation-duration: 28s; }
+    .super-slow { animation-duration: 35s; }
+
+    @keyframes floatHeart {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0.3; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(-150px) rotate(360deg); opacity: 0; }
+    }
+
+    .birthday-card {
+      position: relative;
+      z-index: 10;
+      max-width: 700px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 48px;
+      box-shadow: 0 30px 50px rgba(210, 60, 120, 0.2), 0 10px 25px rgba(0,0,0,0.1);
+      padding: 35px 30px 40px;
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #b3406c;
+      text-shadow: 3px 3px 0 #ffd0dd;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+      word-break: break-word;
+    }
+
+    .subhead {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #d45c84;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .subhead span {
+      background: #fff0f5;
+      padding: 5px 16px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      box-shadow: inset 0 1px 4px #ffb6c1;
+    }
+
+    .gif-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin: 25px 0 20px;
+    }
+
+    .gif-frame {
+      background: white;
+      padding: 12px 12px 18px;
+      border-radius: 36px;
+      box-shadow: 0 15px 25px rgba(190, 70, 120, 0.15), 0 4px 8px rgba(0,0,0,0.05);
+      border: 2px solid #ffe4ed;
+      max-width: 220px;
+      flex: 1 1 180px;
+    }
+
+    .love-message {
+      background: rgba(255, 240, 245, 0.7);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      padding: 28px 22px;
+      border-radius: 40px;
+      margin: 30px 0 18px;
+      border: 1px dashed #ff91a4;
+      box-shadow: inset 0 0 0 2px #ffeef4, 0 8px 0 #d46b8a;
+    }
+
+    .message-text {
+      font-size: 1.4rem;
+      line-height: 1.5;
+      color: #501f33;
+      font-weight: 600;
+      text-shadow: 1px 1px white;
+    }
+
+    .message-text i {
+      color: #c44569;
+      font-style: italic;
+      display: block;
+      margin-top: 12px;
+      font-size: 1.2rem;
+    }
+
+    .signature {
+      margin-top: 25px;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #ad3f65;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .signature span {
+      background: #ffe2ed;
+      padding: 6px 20px;
+      border-radius: 60px;
+      border: 2px solid white;
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      color: #b35f7a;
+      font-weight: 500;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Button style */
+    .song-btn {
+      background: #ff85a2;
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      padding: 16px 32px;
+      border-radius: 60px;
+      box-shadow: 0 8px 0 #b3406c, 0 4px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      margin: 20px 0 10px;
+      transition: 0.1s ease;
+      border: 2px solid #ffeef4;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      letter-spacing: 1px;
+    }
+
+    .song-btn:active {
+      transform: translateY(6px);
+      box-shadow: 0 2px 0 #b3406c, 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 500px) {
+      .birthday-card { padding: 25px 18px 30px; }
+      h1 { font-size: 2.2rem; }
+      .subhead { font-size: 1.2rem; }
+      .message-text { font-size: 1.2rem; }
+      .gif-frame { max-width: 160px; }
+      .song-btn { font-size: 1.3rem; padding: 14px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- BACKGROUND: hearts -->
+<div class="floating-bg">
+  <div class="heart" style="left: 5%; animation-delay: 0s;">💖</div>
+  <div class="heart" style="left: 18%; animation-delay: 2.5s;">🌸</div>
+  <div class="heart" style="left: 30%; animation-delay: 1s;">💗</div>
+  <div class="heart" style="left: 42%; animation-delay: 4s;">✨</div>
+  <div class="heart" style="left: 55%; animation-delay: 0.7s;">💓</div>
+  <div class="heart" style="left: 68%; animation-delay: 3.2s;">💕</div>
+  <div class="heart" style="left: 80%; animation-delay: 1.8s;">🎀</div>
+  <div class="heart" style="left: 90%; animation-delay: 5s;">💘</div>
+  <div class="heart" style="left: 15%; animation-delay: 6s; font-size: 22px;">🦋</div>
+  <div class="heart" style="left: 72%; animation-delay: 7s; font-size: 28px;">💝</div>
+</div>
+
+<!-- FOREGROUND: roses floating in front -->
+<div class="floating-fg">
+  <div class="fg-rose" style="left: 8%; animation-delay: 0.5s;">🌹</div>
+  <div class="fg-rose slow-rose" style="left: 22%; animation-delay: 3s;">🌹</div>
+  <div class="fg-rose super-slow" style="left: 36%; animation-delay: 6s;">🌹</div>
+  <div class="fg-rose" style="left: 50%; animation-delay: 1.5s;">🌹</div>
+  <div class="fg-rose slow-rose" style="left: 64%; animation-delay: 4.5s;">🌹</div>
+  <div class="fg-rose super-slow" style="left: 75%; animation-delay: 2s;">🌹</div>
+  <div class="fg-rose" style="left: 85%; animation-delay: 7s;">🌹</div>
+  <div class="fg-rose slow-rose" style="left: 93%; animation-delay: 5.5s;">🌹</div>
+  <div class="fg-rose" style="left: 12%; animation-delay: 9s;">🌹</div>
+  <div class="fg-rose super-slow" style="left: 58%; animation-delay: 8s;">🌹</div>
+  <div class="fg-rose" style="left: 45%; animation-delay: 11s;">🌹</div>
+  <div class="fg-rose slow-rose" style="left: 70%; animation-delay: 13s;">🌹</div>
+</div>
+
+<!-- main card -->
+<div class="birthday-card">
+  
+  <h1>🎂 HAPPY BIRTHDAY 🎂</h1>
+  <div class="subhead">
+    <span>✨ my favorite person ✨</span>
+    <span>🐻 Bubu & Dudu 🐻‍❄️</span>
+  </div>
+
+  <!-- Bubu Dudu GIFs via Tenor embed -->
+  <div class="gif-gallery">
+    <div class="gif-frame">
+      <div class="tenor-gif-embed" data-postid="15398009259392652893" data-share-method="host" data-aspect-ratio="0.975" data-width="100%"></div>
+    </div>
+    <div class="gif-frame">
+      <div class="tenor-gif-embed" data-postid="3976959660001553044" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+    </div>
+    <div class="gif-frame">
+      <div class="tenor-gif-embed" data-postid="18393103861270827956" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+    </div>
+  </div>
+
+  <!-- love message -->
+  <div class="love-message">
+    <div class="message-text">
+      💌 To the girl who makes my day brighter 💌<br>
+      <span style="font-size: 1.8rem; display: block; margin: 8px 0;">🌸✨🎈</span>
+      “This is your special day – and my favorite too, because it's the day you came into this world. I love your laugh, your little habits, the way you talk, and all the small things that make you you. Or maybe we both just look good cuz of me 😉💕” 
+      <i>— forever yours —</i>
+    </div>
+  </div>
+
+  <!-- BUTTON TO PLAY SONG (replaces badges) -->
+  <button id="playSongBtn" class="song-btn">🎵 Click here 🎵</button>
+  
+  <!-- Hidden YouTube player for the song -->
+  <div id="yt-player" style="display:none;"></div>
+
+  <!-- signature -->
+  <div class="signature">
+    <span>💖 with a little of my heart 💖</span>
+    <span>🎁 Anish 🎁</span>
+  </div>
+
+  <div class="footer-note">
+    ⏰ today is just the beginning · every day with you is a gift ⏰
+  </div>
+</div>
+
+<!-- Tenor embed script -->
+<script async src="https://tenor.com/embed.js"></script>
+
+<!-- YouTube IFrame API for song playback -->
+<script>
+  // Load YouTube API
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('yt-player', {
+      height: '0',
+      width: '0',
+      videoId: 'bV2GklFBaT8',   // <<< REPLACE WITH ACTUAL "Aww Tera Happy Birthday" VIDEO ID
+      playerVars: {
+        autoplay: 0,
+        controls: 0,
+        modestbranding: 1,
+        rel: 0,
+        showinfo: 0
+      },
+      events: {
+        'onReady': onPlayerReady
+      }
+    });
+  }
+
+  function onPlayerReady(event) {
+    // ready to play on button click
+  }
+
+  // Button click triggers playback
+  document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('playSongBtn');
+    btn.addEventListener('click', function() {
+      if (player && player.playVideo) {
+        player.playVideo();
+      } else {
+        // fallback if API not loaded yet
+        alert("🎶 Aww Tera Happy Birthday! 🎶\n(If song doesn't start, tap again or check volume)");
+      }
+      // extra animation feedback
+      btn.style.backgroundColor = "#ff4d6d";
+      setTimeout(() => btn.style.backgroundColor = "#ff85a2", 200);
+    });
+  });
+
+  // small console surprise
+  console.log("%c🎂🎈 HAPPY BIRTHDAY PRINSU! 🎈🎂", "font-size: 18px; background: #ffb6c1; color: #4a001f; padding: 8px; border-radius: 30px;");
+</script>
+
+<!-- fallback in case YouTube is slow: we also have an optional audio element that can be used 
+     but the button will work. You can replace the videoId above with the exact YouTube ID 
+     of "Aww Tera Happy Birthday" song for perfect match. -->
+</body>
+</html>
